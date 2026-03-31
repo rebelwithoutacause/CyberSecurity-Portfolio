@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberCrime Encyclopedia</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<canvas id="matrix-canvas"></canvas>
+
+<div class="shell">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-brand">
+      <div class="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6
+               11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623
+               5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152
+               c-3.196 0-6.1-1.248-8.25-3.285z"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-title">CyberCrime</span>
+        <span class="brand-sub">Encyclopedia</span>
+      </div>
+    </div>
+
+    <div class="search-wrap">
+      <svg class="search-ico-svg" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/>
+        <path stroke-linecap="round" d="m21 21-4.35-4.35"/>
+      </svg>
+      <input id="search-input" class="search-input" type="text"
+             placeholder="Search encyclopedia…" autocomplete="off" />
+    </div>
+
+    <nav class="nav-links">
+
+      <a class="nav-item active" data-view="home">
+        <svg class="nav-svg" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12
+               M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875
+               c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21
+               h4.125c.621 0 1.125-.504 1.125-1.125V9.75"/>
+        </svg>
+        Home
+      </a>
+
+      <a class="nav-item" data-view="cybercrimes">
+        <svg class="nav-svg" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6
+               11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622
+               5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152
+               c-3.196 0-6.1-1.25-8.25-3.286zm0 13.036h.008v.008H12v-.008z"/>
+        </svg>
+        Cybercrimes
+      </a>
+
+      <a class="nav-item" data-view="history">
+        <svg class="nav-svg" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        History
+      </a>
+
+      <a class="nav-item" data-view="hackers">
+        <svg class="nav-svg" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z
+               M4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75
+               c-2.676 0-5.216-.584-7.499-1.632z"/>
+        </svg>
+        Hackers
+      </a>
+
+      <div class="nav-divider"></div>
+
+      <a class="nav-item" data-view="terminology">
+        <svg class="nav-svg" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25
+               A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25
+               a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25
+               A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+        </svg>
+        Terminology
+      </a>
+
+      <a class="nav-item" data-view="attacks">
+        <svg class="nav-svg" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+        </svg>
+        Attack Types
+      </a>
+
+      <a class="nav-item" data-view="darkweb">
+        <svg class="nav-svg" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5
+               c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639
+               C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        Dark / Deep Web
+      </a>
+
+      <div class="nav-divider"></div>
+
+      <a class="nav-item" data-view="channels">
+        <svg class="nav-svg" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347
+               a1.125 1.125 0 010 1.972l-11.54 6.347
+               a1.125 1.125 0 01-1.667-.986V5.653z"/>
+        </svg>
+        YouTube Channels
+      </a>
+
+      <a class="nav-item" data-view="training">
+        <svg class="nav-svg" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112
+               20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347
+               m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493
+               a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814
+               m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342
+               M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675
+               A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75
+               15.75v-1.5"/>
+        </svg>
+        Free Training
+      </a>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <span class="footer-label">Created by</span>
+      <span class="footer-creator">Teodor Kostov</span>
+    </div>
+
+  </aside>
+
+  <!-- ── HAMBURGER ── -->
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+
+  <!-- ── MAIN ── -->
+  <main class="main" id="main">
+    <div id="view-root"></div>
+  </main>
+
+</div>
+
+<!-- ── DETAIL MODAL ── -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modal-close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2.5" width="12" height="12">
+        <path stroke-linecap="round" d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
